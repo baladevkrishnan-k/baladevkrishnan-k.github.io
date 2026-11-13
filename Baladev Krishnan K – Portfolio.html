@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Baladev Krishnan K – Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef3ea;--card:#f7faf4;--ink:#16243a;--mute:#51607a;--rule:#b9cbd9;--red:#c0392b;--accent:#1f5f4a;
+  --head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--body:"Source Serif 4",Georgia,serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#101a17;--card:#16231f;--ink:#e6efe9;--mute:#9fb0aa;--rule:#2f4a42;--red:#ef7d6e;--accent:#7fd1b0;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#101a17;--card:#16231f;--ink:#e6efe9;--mute:#9fb0aa;--rule:#2f4a42;--red:#ef7d6e;--accent:#7fd1b0;color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.65 var(--body);
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 31px,var(--rule) 31px,var(--rule) 32px);background-attachment:local}
+body::after{content:"";position:fixed;top:0;bottom:0;left:max(28px,calc(50% - 460px));width:2px;background:var(--red);opacity:.55;pointer-events:none}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--paper);z-index:10}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px 0 60px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--paper);border-bottom:2px solid var(--ink)}
+nav .wrap{display:flex;gap:18px;overflow-x:auto;padding-top:12px;padding-bottom:12px;white-space:nowrap;font:600 15px var(--head)}
+nav a{color:var(--ink);text-decoration:none}nav a:hover{color:var(--red)}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0}
+h1{font-size:clamp(2.8rem,9vw,5.6rem);font-weight:700;letter-spacing:-.03em}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);font-weight:700;margin-bottom:20px;letter-spacing:-.01em}
+h3{font-size:1.25rem;font-weight:700}
+section{padding:56px 0 8px}
+.hero{padding-top:64px}
+.role{font:500 clamp(1.1rem,3vw,1.5rem) var(--head);color:var(--accent);margin:18px 0 24px}
+.lede{max-width:62ch;font-size:1.15rem}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{font:600 15px var(--head);padding:10px 18px;border:2px solid var(--ink);color:var(--ink);text-decoration:none;background:var(--card);border-radius:4px}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn:hover{border-color:var(--red)}
+.ledger{margin-top:40px;background:var(--card);border:2px solid var(--ink);border-radius:4px;padding:6px 18px 10px}
+.ledger table{width:100%;border-collapse:collapse;font-size:1rem}
+.ledger caption{font:700 .95rem var(--head);text-align:left;padding:10px 0;color:var(--mute)}
+.ledger th{font:600 .85rem var(--head);text-align:left;color:var(--mute);border-bottom:2px solid var(--ink);padding:6px 4px}
+.ledger td{padding:8px 4px;border-bottom:1px dotted var(--rule);vertical-align:top}
+.ledger td:last-child,.ledger th:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cr{color:var(--accent);font-weight:600}
+.card{background:var(--card);border:2px solid var(--ink);border-radius:4px;padding:22px 24px;margin-bottom:22px}
+.card .tech{font:500 .9rem var(--head);color:var(--mute);margin:6px 0 14px}
+.card ul{margin:0;padding-left:20px}.card li{margin-bottom:8px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.skill{border-top:2px solid var(--ink);padding-top:10px}
+.skill h3{font-size:1.05rem;margin-bottom:6px}
+.skill p{margin:0;color:var(--mute);font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:0}
+.chips li{border:1.5px solid var(--rule);background:var(--card);padding:3px 12px;border-radius:20px;font-size:.95rem}
+.entry{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:14px 0;border-bottom:1px dotted var(--rule)}
+.entry p{grid-column:1/-1;margin:0;color:var(--mute)}
+.entry .amt{font:700 1rem var(--head);color:var(--accent)}
+footer{margin-top:64px;border-top:2px solid var(--ink);padding:28px 0 40px;font-size:.95rem;color:var(--mute)}
+.theme{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:11;font:600 14px var(--head);padding:8px 12px;border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:4px;cursor:pointer}
+@media(max-width:560px){.wrap{padding-left:46px}body::after{left:30px}body{font-size:17px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav aria-label="Sections"><div class="wrap">
+<a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#achievements">Achievements</a><a href="#leadership">Leadership</a><a href="#education">Education</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a>
+</div></nav>
+
+<main class="wrap">
+<header class="hero" id="top">
+  <h1>Baladev Krishnan K</h1>
+  <p class="role">Computer Science student · Software Development · Business Analysis · Product</p>
+  <p class="lede">I build software and analyse data to solve real business problems. I’m developing an offline multi-company billing and accounting application in Python, I’ve solved 500+ Data Structures and Algorithms problems, and I enjoy turning messy processes into clear systems. Expected to graduate in 2028.</p>
+  <div class="btns">
+    <a class="btn primary" href="mailto:baladevkrishnan.k@gmail.com">Email me</a>
+    <a class="btn" href="https://github.com/baladev-krishnan-k" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://linkedin.com/in/baladevkrishnan-k" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <div class="ledger">
+    <table>
+      <caption>Account summary</caption>
+      <thead><tr><th>Entry</th><th>Detail</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Mind2Market</td><td>1st place, SDG student wellbeing solution</td><td class="cr">₹10,000</td></tr>
+        <tr><td>Odoo Hackathon 2026</td><td>Top 10, 24-hour national hackathon</td><td class="cr">Top 10</td></tr>
+        <tr><td>Problem solving</td><td>Data Structures &amp; Algorithms</td><td class="cr">500+</td></tr>
+        <tr><td>CGPA</td><td>B.E. Computer Science and Engineering</td><td class="cr">8.13/10</td></tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+<section id="about">
+  <h2>About</h2>
+  <p>I’m a Computer Science Engineering student at Bannari Amman Institute of Technology with a strong problem-solving foundation and hands-on experience in Python, Java, C++, SQL, desktop application development, database design and Object-Oriented Programming.</p>
+  <p>I’m open to software development, Business Analysis, Product Management, Founder’s Office, and Strategy &amp; Operations roles. I like using data and technology to solve business problems and improve operational efficiency, combining analytical thinking, technical depth, process improvement and collaborative execution.</p>
+  <p>Right now I’m developing LedgerFlow, a business-focused billing and accounting solution, and analysing data to identify trends.</p>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <article class="card">
+    <h3>LedgerFlow – Multi-Company Billing &amp; Accounting System</h3>
+    <p class="tech">Desktop application · Business process automation · Python, PySide6, SQLite, SQLAlchemy, pytest</p>
+    <p>An offline desktop accounting application that manages billing, customer accounts and financial transactions independently across multiple companies, designed to streamline financial operations and improve financial visibility.</p>
+    <ul>
+      <li>Company-wise and financial-year-wise invoice management with configurable invoice numbering, GST and non-GST billing, product management and automated invoice calculations.</li>
+      <li>Integrated party ledgers that combine invoices, payments, discounts and opening balances into one account view with outstanding balances and transaction histories.</li>
+      <li>Financial-year opening balance carry-forward, plus company-specific customer, product and accounting records.</li>
+      <li>Invoice editing, backdated transactions and audit history, with automatic recalculation of related party balances and ledgers.</li>
+      <li>Modular architecture using PySide6, SQLAlchemy ORM and SQLite, with automated testing and local data storage for offline operation.</li>
+    </ul>
+  </article>
+  <article class="card">
+    <h3>Electricity Consumption Analysis</h3>
+    <p class="tech">Python, Pandas, Matplotlib, Excel</p>
+    <ul>
+      <li>Cleaned and analysed electricity consumption data to identify daily, monthly and peak-demand usage patterns using Pandas.</li>
+      <li>Created visual reports and spreadsheet reports with Matplotlib and Excel to communicate consumption trends and support data-informed energy-efficiency planning.</li>
+    </ul>
+  </article>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="cols">
+    <div class="skill"><h3>Programming languages</h3><p>Python, Java, C, C++, SQL</p></div>
+    <div class="skill"><h3>Frameworks &amp; libraries</h3><p>PySide6, SQLAlchemy, pytest, Pandas, Matplotlib</p></div>
+    <div class="skill"><h3>Databases</h3><p>SQLite, MySQL, MongoDB, Relational Database Design, ORM, Database Migrations</p></div>
+    <div class="skill"><h3>Software engineering</h3><p>Object-Oriented Programming, Layered Architecture, Repository Pattern, Service Layer, Unit Testing, Debugging</p></div>
+    <div class="skill"><h3>Core computer science</h3><p>Data Structures &amp; Algorithms, DBMS, Operating Systems, Computer Networks, System Design</p></div>
+    <div class="skill"><h3>Developer tools</h3><p>Git, GitHub, VS Code, Maven, Postman</p></div>
+    <div class="skill"><h3>Data analysis &amp; visualization</h3><p>SQL, Excel, Google Sheets, Python, Pandas, Matplotlib, Data Cleaning, Exploratory Data Analysis, Data Visualization, Power BI, Tableau</p></div>
+    <div class="skill"><h3>Business analysis</h3><p>Requirements Analysis, Business Process Improvement, Workflow Analysis, Process Documentation, Problem Identification, Stakeholder Communication</p></div>
+    <div class="skill"><h3>Product management</h3><p>Product Thinking, User Research, Feature Prioritization, Product Planning, Product Documentation, User-Centric Problem Solving</p></div>
+    <div class="skill"><h3>Strategy &amp; operations</h3><p>Market Research, Competitive Analysis, Business Research, Strategic Thinking, Process Optimization, Operational Planning, Data-Informed Decision Making</p></div>
+    <div class="skill"><h3>Business &amp; productivity tools</h3><p>Microsoft PowerPoint, Google Slides, Notion, Microsoft Excel, Google Sheets, Power BI</p></div>
+    <div class="skill"><h3>Professional skills</h3><p>Analytical Thinking, Critical Thinking, Problem Solving, Communication, Team Collaboration, Leadership, Presentation Skills, Research, Product Thinking, Business Analysis, Event Coordination, AI-Assisted Learning &amp; Automation</p></div>
+  </div>
+</section>
+
+<section id="achievements">
+  <h2>Achievements</h2>
+  <div class="entry"><h3>Mind2Market – 1st place</h3><span class="amt">₹10,000 prize</span><p>Won first place for developing a solution to a student psychological problem, aligned with a Sustainable Development Goal (SDG).</p></div>
+  <div class="entry"><h3>Odoo Hackathon 2026 – Top 10</h3><span class="amt">Top 10</span><p>Secured a Top 10 position in a 24-hour national hackathon held at Odoo India HQ, Gandhinagar, Gujarat.</p></div>
+  <div class="entry"><h3>Problem solving</h3><span class="amt">500+ solved</span><p>Solved 500+ Data Structures and Algorithms problems covering arrays, strings, linked lists, stacks, queues, hashing, trees, graphs, greedy algorithms and dynamic programming, showing structured analytical thinking.</p></div>
+</section>
+
+<section id="leadership">
+  <h2>Leadership &amp; activities</h2>
+  <article class="card">
+    <h3>Event Organizer – Celesta</h3>
+    <p class="tech">Bannari Amman Institute of Technology · Event planning and operations</p>
+    <p style="margin:0">Coordinated participant registrations, communication, volunteer activities, event planning, logistics and on-ground operations.</p>
+  </article>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <div class="entry"><h3>Bannari Amman Institute of Technology</h3><span class="amt">CGPA 8.13/10</span><p>B.E. in Computer Science and Engineering · Tamil Nadu, India · Expected May 2028</p></div>
+  <div class="entry"><h3>Nava Bharath National School</h3><span class="amt">91.6%</span><p>Central Board of Secondary Education (CBSE) · 2024</p></div>
+</section>
+
+<section id="certifications">
+  <h2>Certifications</h2>
+  <ul class="chips">
+    <li>Business Analysis Basics – Simplilearn</li>
+    <li>Business Analysis and Process Management – Coursera</li>
+    <li>Introduction to Cybersecurity – Cisco Networking Academy</li>
+    <li>Cloud 101 – AWS Training and Certification</li>
+  </ul>
+  <h2 style="margin-top:40px">Interests</h2>
+  <ul class="chips">
+    <li>Business Strategy</li><li>Product Development</li><li>Market Trends</li><li>Technology and Innovation</li><li>Artificial Intelligence</li><li>Continuous Learning</li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Open to software development, Business Analyst, Product, Founder’s Office and Strategy &amp; Operations roles.</p>
+  <p><a href="mailto:baladevkrishnan.k@gmail.com">baladevkrishnan.k@gmail.com</a><br>
+  <a href="tel:+919790145405">+91-9790145405</a><br>
+  <a href="https://github.com/baladev-krishnan-k" target="_blank" rel="noopener">github.com/baladev-krishnan-k</a><br>
+  <a href="https://linkedin.com/in/baladevkrishnan-k" target="_blank" rel="noopener">linkedin.com/in/baladevkrishnan-k</a></p>
+</section>
+
+<footer>© 2026 Baladev Krishnan K</footer>
+</main>
+
+<button class="theme" id="theme" type="button" aria-label="Toggle light or dark theme">Theme</button>
+<script>
+(function(){
+  var r=document.documentElement,b=document.getElementById("theme");
+  b.addEventListener("click",function(){
+    var dark=r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);
+    r.setAttribute("data-theme",dark?"light":"dark");
+  });
+})();
+</script>
+</body>
+</html>
